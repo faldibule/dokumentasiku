@@ -21,8 +21,8 @@ const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props
 }));
 
 const ListItemIconStyle = styled(ListItemIcon)({
-  width: 22,
-  height: 22,
+  width: 16,
+  height: 16,
   color: 'inherit',
   display: 'flex',
   alignItems: 'center',
@@ -112,7 +112,7 @@ function NavItem({ item, active }) {
                       }}
                     />
                   </ListItemIconStyle>
-                  <ListItemText disableTypography primary={title} />
+                  <ListItemText sx={{ fontSize: '0.8rem' }} disableTypography primary={title} />
                 </ListItemStyle>
               );
             })}

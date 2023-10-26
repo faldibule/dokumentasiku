@@ -48,6 +48,7 @@ export default function DashboardLayout({ children }) {
                             {/* <Middleware.After>
                             </Middleware.After> */}
                         </MainStyle>
+                        <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
                     </RootStyle>
                 </RecoilRoot>
             </ThemeProvider>
