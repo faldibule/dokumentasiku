@@ -1,9 +1,20 @@
 "use client"
+import LoadingNavbar from '@/components/LoadingNavbar';
+import LoadingSidebar from '@/components/LoadingSidebar';
 import DashboardNavbar from '@/layout/dashboard/DashboardNavbar';
 import DashboardSidebar from '@/layout/dashboard/DashboardSidebar';
+const DashboardSideBarDynamic = dynamic(() => import('@/layout/dashboard/DashboardSidebar'), {
+    ssr: false,
+    loading: () => <LoadingSidebar />
+})
+const DashboardNavbarDynamic = dynamic(() => import('@/layout/dashboard/DashboardNavbar'), {
+    ssr: false,
+    loading: () => <LoadingNavbar />
+})
 import ThemeProvider from '@/theme';
 import { styled } from '@mui/material/styles';
-import { Suspense, useState } from 'react';
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 import { RecoilRoot } from 'recoil';
 
 // ----------------------------------------------------------------------
@@ -39,16 +50,14 @@ export default function DashboardLayout({ children }) {
             <ThemeProvider>
                 <RecoilRoot>
                     <RootStyle>
-                        <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
-                        <Suspense fallback={'Loading...'}>
-                            <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
-                        </Suspense>
+                        <DashboardNavbarDynamic onOpenSidebar={() => setOpen(true)} />
+                        <DashboardSideBarDynamic isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
+                        
                         <MainStyle>
                                 {children}
                             {/* <Middleware.After>
                             </Middleware.After> */}
                         </MainStyle>
-                        <DashboardSidebar isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
                     </RootStyle>
                 </RecoilRoot>
             </ThemeProvider>
