@@ -5,7 +5,7 @@ import React from 'react'
 
 const MyDocumentation = () => {
   return (
-    <PageHeader title="Install">
+    <PageHeader title="Overview">
         <Container>
             <Grid container>
               <Grid item xs={12}>

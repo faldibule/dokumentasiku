@@ -6,12 +6,12 @@ const Intro = ({ id }) => {
         <div id={id} style={{ scrollMarginTop: '88px' }}>
             <Stack spacing={{ xs: 1 }} textAlign={{ xs: 'center', md: 'left' }}>
                 <Typography variant='h2'>
-                    My Component
+                    Utils
                 </Typography>
                 <Typography variant='h4' color='grey.400'>
-                    Berisikan "Component" custom yang sering saya gunakan
+                    Berisikan "Utils" berupa function custom yang sering saya gunakan
                 </Typography>
-                <Typography variant='p' color='grey.400'>"My Component" adalah halaman yang berisikan component-component yang pernah saya buat</Typography>
+                <Typography variant='p' color='grey.400'>"Utils" adalah halaman yang berisikan 'Function' yang pernah saya buat  untuk membantu saya dalam menyelesaikan masalah</Typography>
             </Stack>
         </div>
     )
