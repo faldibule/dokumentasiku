@@ -2,11 +2,12 @@
 import PropTypes from 'prop-types';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
+import { Box, Stack, AppBar, Toolbar, IconButton, Tooltip } from '@mui/material';
 // components
 import Iconify from '../../components/Iconify';
 //
 import AccountPopover from './AccountPopover';
+import Link from 'next/link';
 
 // ----------------------------------------------------------------------
 
@@ -51,7 +52,12 @@ export default function DashboardNavbar({ onOpenSidebar }) {
         <Box sx={{ flexGrow: 1 }} />
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
-          <AccountPopover />
+          <Tooltip title='Github Repo'>
+            <Link href='https://github.com/faldibule/dokumentasiku'>
+              <Iconify sx={{ color: '#1F61C8', fontSize: '1.5rem' }} icon="mdi:github" />
+            </Link>
+          </Tooltip>
+          {/* <AccountPopover /> */}
         </Stack>
       </ToolbarStyle>
     </RootStyle>

@@ -17,7 +17,6 @@ const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props
   position: 'relative',
   textTransform: 'capitalize',
   color: 'white',
-  borderRadius: theme.shape.borderRadius,
 }));
 
 const ListItemIconStyle = styled(ListItemIcon)({
@@ -36,7 +35,7 @@ NavItem.propTypes = {
   active: PropTypes.func,
 };
 
-function NavItem({ item, active }) {
+function NavItem({ item, active, activeSection }) {
   const theme = useTheme();
 
   const isActiveRoot = active(item.path);
@@ -46,7 +45,7 @@ function NavItem({ item, active }) {
   const [open, setOpen] = useState(true);
 
   const handleOpen = () => {
-    setOpen((prev) => !prev);
+    setOpen((prev) => true);
   };
 
   const activeRootStyle = {
@@ -56,25 +55,21 @@ function NavItem({ item, active }) {
   };
 
   const activeSubStyle = {
-    color: 'text.primary',
     fontWeight: 'fontWeightMedium',
+    borderLeft: 1, pl: 2, 
+    borderColor: '#3190F0', 
+    color: '#3190F0'
   };
 
   if (children) {
     return (
       <>
         <ListItemStyle
-          onClick={handleOpen}
           sx={{
             ...(isActiveRoot && activeRootStyle),
           }}
         >
-          {open ?
-          <KeyboardArrowDown sx={{ color: '#007CF9', fontSize: '1.2rem' }} />
-          :
-          <KeyboardArrowRight sx={{ color: '#007CF9', fontSize: '1.2rem' }} />
-          }
-          <ListItemText sx={{ fontWeight: 'bold' }} disableTypography primary={title} />
+          <ListItemText sx={{ fontWeight: 'bold', color: 'grey.500', fontSize: '0.9rem' }} disableTypography primary={title} />
           {info && info}
         </ListItemStyle>
 
@@ -82,7 +77,8 @@ function NavItem({ item, active }) {
           <List component="div" disablePadding>
             {children.map((item) => {
               const { title, path: childPath } = item;
-              const isActiveSub = active(`${path}/${childPath}`);
+              const tempChild = childPath.replaceAll('/', '').replaceAll('#', '') 
+              const isActiveList = activeSection === tempChild
 
               return (
                 <ListItemStyle
@@ -90,28 +86,9 @@ function NavItem({ item, active }) {
                   component={Link}
                   to={`${path}/${childPath}`}
                   sx={{
-                    ...(isActiveSub && activeSubStyle),
+                    ...(isActiveList && activeSubStyle),
                   }}
                 >
-                  <ListItemIconStyle>
-                    <Box
-                      component="span"
-                      sx={{
-                        width: 4,
-                        height: 4,
-                        display: 'flex',
-                        borderRadius: '50%',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        bgcolor: 'text.disabled',
-                        transition: (theme) => theme.transitions.create('transform'),
-                        ...(isActiveSub && {
-                          transform: 'scale(2)',
-                          bgcolor: 'primary.main',
-                        }),
-                      }}
-                    />
-                  </ListItemIconStyle>
                   <ListItemText sx={{ fontSize: '0.8rem', fontWeight: 'bold' }} disableTypography primary={title} />
                 </ListItemStyle>
               );
@@ -137,11 +114,11 @@ function NavItem({ item, active }) {
   );
 }
 
-NavSection.propTypes = {
+ListSection.propTypes = {
   navConfig: PropTypes.array,
 };
 
-export default function NavSection({ navConfig, ...other }) {
+export default function ListSection({ navConfig, activeSection, ...other }) {
   const pathname = usePathname();
 
   // const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
@@ -150,7 +127,7 @@ export default function NavSection({ navConfig, ...other }) {
     <Box {...other}>
       <List disablePadding sx={{ p: 1 }}>
         {navConfig.map((item) => (
-          <NavItem key={item.title} item={item} active={() => false} />
+          <NavItem key={item.title} item={item} active={() => {}} activeSection={activeSection} />
         ))}
       </List>
     </Box>

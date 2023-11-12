@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Box, CircularProgress, Drawer, Stack, Toolbar } from "@mui/material";
+import { AppBar, Box, CircularProgress, Drawer, Skeleton, Stack, Toolbar } from "@mui/material";
 import { styled } from '@mui/material/styles';
 
 const DRAWER_WIDTH = 200;
@@ -36,7 +36,7 @@ function LoadingNavbar() {
 
             <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
                   <Box sx={{ display: { md: "flex", xs: 'none' }, justifyContent: "center", alignItems: "center" }}>
-                     <CircularProgress />
+                     <Skeleton animation="wave" variant="circular" width={40} height={40} />
                   </Box>
             </Stack>
          </ToolbarStyle>

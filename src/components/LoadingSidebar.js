@@ -30,7 +30,7 @@ function LoadingSidebar() {
                },
             }}
          >
-            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", width: 250 }}>
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", width: 240 }}>
                <CircularProgress />
             </Box>
          </Drawer>

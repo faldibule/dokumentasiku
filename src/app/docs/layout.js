@@ -1,8 +1,6 @@
 "use client"
 import LoadingNavbar from '@/components/LoadingNavbar';
 import LoadingSidebar from '@/components/LoadingSidebar';
-import DashboardNavbar from '@/layout/dashboard/DashboardNavbar';
-import DashboardSidebar from '@/layout/dashboard/DashboardSidebar';
 const DashboardSideBarDynamic = dynamic(() => import('@/layout/dashboard/DashboardSidebar'), {
     ssr: false,
     loading: () => <LoadingSidebar />
@@ -50,11 +48,10 @@ export default function DashboardLayout({ children }) {
             <ThemeProvider>
                 <RecoilRoot>
                     <RootStyle>
-                        <DashboardNavbarDynamic onOpenSidebar={() => setOpen(true)} />
                         <DashboardSideBarDynamic isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
-                        
+                        <DashboardNavbarDynamic onOpenSidebar={() => setOpen(true)} />
                         <MainStyle>
-                                {children}
+                            {children}
                             {/* <Middleware.After>
                             </Middleware.After> */}
                         </MainStyle>

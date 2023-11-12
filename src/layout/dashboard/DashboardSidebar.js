@@ -54,10 +54,10 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
       }}
     >
       <Box sx={{ px: 2.5, py: 3 }}>
-        <Typography>
+        <Typography fontWeight='bold' fontSize='1.2rem'>
           DOKUMENTASIKU
         </Typography>
-        <Typography fontSize='0.8rem' fontWeight='bold' color='primary'>Contekan ajaib untuk bekerja</Typography>
+        <Typography fontSize='0.9rem' fontWeight='bold' color='primary.main'>Contekan ajaib</Typography>
       </Box>
       <NavSection navConfig={navConfig} />
       <Box sx={{ flexGrow: 1 }} />
