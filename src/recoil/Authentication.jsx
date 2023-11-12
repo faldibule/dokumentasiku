@@ -1,4 +1,4 @@
-import http from "@/variable/Api";
+import http from "@/variable/Api_example";
 import { atom, selector } from "recoil";
 
 const authentication = atom({
