@@ -35,7 +35,7 @@ NavItem.propTypes = {
   active: PropTypes.func,
 };
 
-function NavItem({ item, active, activeSection }) {
+function NavItem({ item, active, activeSection, parentUrl }) {
   const theme = useTheme();
 
   const isActiveRoot = active(item.path);
@@ -84,8 +84,9 @@ function NavItem({ item, active, activeSection }) {
                 <ListItemStyle
                   key={title}
                   component={Link}
-                  to={`${path}/${childPath}`}
+                  to={`${parentUrl}${path}${childPath}`}
                   sx={{
+                    pl: 2,
                     ...(isActiveList && activeSubStyle),
                   }}
                 >
@@ -101,16 +102,13 @@ function NavItem({ item, active, activeSection }) {
 
   return (
     <ListItemStyle
-      component={Link}
-      to={path}
-      sx={{
-        ...(isActiveRoot && activeRootStyle),
-      }}
-    >
-      <ListItemIconStyle>{icon && icon}</ListItemIconStyle>
-      <ListItemText disableTypography primary={title} />
-      {info && info}
-    </ListItemStyle>
+        sx={{
+          ...(isActiveRoot && activeRootStyle),
+        }}
+      >
+        <ListItemText sx={{ fontWeight: 'bold', color: 'grey.500', fontSize: '0.9rem' }} disableTypography primary={title} />
+        {info && info}
+      </ListItemStyle>
   );
 }
 
@@ -118,16 +116,14 @@ ListSection.propTypes = {
   navConfig: PropTypes.array,
 };
 
-export default function ListSection({ navConfig, activeSection, ...other }) {
+export default function ListSection({ navConfig, activeSection, parentUrl, ...other }) {
   const pathname = usePathname();
-
-  // const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
 
   return (
     <Box {...other}>
       <List disablePadding sx={{ p: 1 }}>
         {navConfig.map((item) => (
-          <NavItem key={item.title} item={item} active={() => {}} activeSection={activeSection} />
+          <NavItem key={item.title} item={item} active={() => {}} activeSection={activeSection} parentUrl={parentUrl} />
         ))}
       </List>
     </Box>

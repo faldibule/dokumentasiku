@@ -37,7 +37,7 @@ RightBar.propTypes = {
   onCloseSidebar: PropTypes.func,
 };
 
-export default function RightBar({ activeSection, navConfig }) {
+export default function RightBar({ activeSection, navConfig, parentUrl }) {
   const renderContent = (
     <Scrollbar
       sx={{
@@ -48,7 +48,7 @@ export default function RightBar({ activeSection, navConfig }) {
       <Box sx={{ px: 2.5, py: 3 }}>
         <PalestineCard />
       </Box>
-      <ListSection activeSection={activeSection} navConfig={navConfig} />
+      <ListSection parentUrl={parentUrl} activeSection={activeSection} navConfig={navConfig} />
       <Box sx={{ flexGrow: 1 }} />
     </Scrollbar>
   );

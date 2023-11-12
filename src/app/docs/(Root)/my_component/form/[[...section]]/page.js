@@ -1,23 +1,20 @@
 "use client"
 import PageHeader from '@/components/PageHeader'
-import CustomActionTable from '@/components/my_component/sections/CustomActionTable'
-import CustomAutoComplete from '@/components/my_component/sections/CustomAutoComplete'
-import Intro from '@/components/my_component/sections/Intro'
-import navConfig from '@/layout/dashboard/NavConfig'
+import CustomAutoComplete from '@/components/my_component/form/CustomAutoComplete'
+import Intro from '@/components/my_component/form/Intro'
 import RightBar from '@/layout/dashboard/RightBar'
+import getNavConfigByParent from '@/utils/getNavConfigByParent'
 import { Container, Grid } from '@mui/material'
 import React, { useState } from 'react'
 import Scrollspy from 'react-scrollspy'
 
-const navConfigFiltered = navConfig.filter((v) => v.title === 'My Component')
-const sectionId = navConfigFiltered[0].children?.map((v) => { 
-    return v.path.replaceAll('/#', '') 
-})
+const config = getNavConfigByParent('my_component', 'form')
+const sectionId = config?.children?.map((v) => v.id)
 
 const Page = () => {
     const [activeSection, setActiveSection] = useState('')
     return (
-        <PageHeader title="My Component">
+        <PageHeader title="Form">
             <Container>
                 <Grid container>
                     <Grid item xs={12} md={12} lg={9.5}>
@@ -25,12 +22,13 @@ const Page = () => {
                             setActiveSection(e.id)
                         }}>
                             <Intro id='intro' />
-                            <CustomActionTable id='CustomActionTable' />
                             <CustomAutoComplete id='CustomAutoComplete' />
+                            <CustomAutoComplete id='CustomAutoComplete2' />
+                            <CustomAutoComplete id='CustomAutoComplete3' />
                         </Scrollspy>
                     </Grid>
                     <Grid item md={0} lg={2}>
-                        <RightBar navConfig={navConfigFiltered} activeSection={activeSection} />
+                        <RightBar parentUrl='/docs/my_component' navConfig={[config]} activeSection={activeSection} />
                     </Grid>
                 </Grid>
             </Container>

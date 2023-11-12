@@ -17,7 +17,6 @@ const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props
   position: 'relative',
   textTransform: 'capitalize',
   color: 'white',
-  borderRadius: theme.shape.borderRadius,
 }));
 
 const ListItemIconStyle = styled(ListItemIcon)({
@@ -40,6 +39,7 @@ function NavItem({ item, active }) {
   const theme = useTheme();
 
   const isActiveRoot = active(item.path);
+  const pathname = usePathname();
 
   const { title, path, icon, info, children } = item;
 
@@ -56,8 +56,11 @@ function NavItem({ item, active }) {
   };
 
   const activeSubStyle = {
-    color: 'text.primary',
+    color: '#3399FF',
+    borderLeft: 1,
+    borderColor: '#3399FF',
     fontWeight: 'fontWeightMedium',
+    bgcolor: 'grey.800'
   };
 
   if (children) {
@@ -82,7 +85,8 @@ function NavItem({ item, active }) {
           <List component="div" disablePadding>
             {children.map((item) => {
               const { title, path: childPath } = item;
-              const isActiveSub = active(`${path}/${childPath}`);
+              const tempChildPath = childPath.replace('/', '')
+              const isActiveSub = pathname.split('/')[3] === tempChildPath;
 
               return (
                 <ListItemStyle
@@ -142,9 +146,6 @@ NavSection.propTypes = {
 };
 
 export default function NavSection({ navConfig, ...other }) {
-  const pathname = usePathname();
-
-  // const match = (path) => (path ? !!matchPath({ path, end: false }, pathname) : false);
 
   return (
     <Box {...other}>
