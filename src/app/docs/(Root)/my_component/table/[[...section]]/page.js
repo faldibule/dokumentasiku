@@ -1,4 +1,5 @@
 "use client"
+import NavigationFooter from '@/components/NavigationFooter'
 import PageHeader from '@/components/PageHeader'
 import CustomActionTable from '@/components/my_component/table/CustomActionTable'
 import Intro from '@/components/my_component/table/Intro'
@@ -27,6 +28,15 @@ const Page = () => {
                             <CustomActionTable id='CustomActionTable' />
                             <CustomActionTable id='CustomActionTable2' />
                             <CustomActionTable id='CustomActionTable3' />
+                            <NavigationFooter 
+                                isBack={true}
+                                backUrl='/docs/my_component/overview_my_component'
+                                backLabel='Overview'
+
+                                isNext={true}
+                                nextLabel='Form'
+                                nextUrl='/docs/my_component/form'
+                            />
                         </Scrollspy>
                     </Grid>
                     <Grid item md={0} lg={2}>

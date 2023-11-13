@@ -1,7 +1,7 @@
 import { CopyAll } from '@mui/icons-material';
 import { IconButton, Stack, Tooltip, Typography } from '@mui/material';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 const CodeBlock = ({ codeString, language }) => {
     const copyToClipboard = () => {
@@ -20,7 +20,7 @@ const CodeBlock = ({ codeString, language }) => {
                         </IconButton>
                     </Tooltip>
                 </Stack>
-                <SyntaxHighlighter customStyle={{ fontSize: '0.8rem' }} showLineNumbers={true} language={language} style={dracula}>
+                <SyntaxHighlighter lineNumberStyle={{ color: 'white' }} customStyle={{ fontSize: '0.8rem' }} showLineNumbers={true} language={language} style={vscDarkPlus}>
                     {codeString}
                 </SyntaxHighlighter>
             </Stack>

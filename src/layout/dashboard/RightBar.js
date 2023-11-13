@@ -45,7 +45,7 @@ export default function RightBar({ activeSection, navConfig, parentUrl }) {
         '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column', justifyContent: 'end' },
       }}
     >
-      <Box sx={{ px: 2.5, py: 3 }}>
+      <Box sx={{ py: 3, pr: 2.5 }}>
         <PalestineCard />
       </Box>
       <ListSection parentUrl={parentUrl} activeSection={activeSection} navConfig={navConfig} />

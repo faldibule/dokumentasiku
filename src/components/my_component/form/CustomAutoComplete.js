@@ -4,7 +4,10 @@ import CodeBlock from '../../CodeBlock'
 
 const codeToDisplay = `import { Autocomplete, TextField } from "@mui/material";
 
-const CustomAutocomplete = ({ label, errors, options, getOptionLabel, selectedValue, inputValue, setInputValue, setSelectedValue, size = "medium", isAutoCompleteItem = false, disabled = false }) => {
+const CustomAutocomplete = ({ 
+    label, errors, options, getOptionLabel, selectedValue, inputValue, 
+    setInputValue, setSelectedValue, size = "medium", isAutoCompleteItem = false, disabled = false 
+}) => {
     return (
         <Autocomplete
             disabled={disabled}

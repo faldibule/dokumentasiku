@@ -1,8 +1,8 @@
 "use client"
 import NavigationFooter from '@/components/NavigationFooter'
 import PageHeader from '@/components/PageHeader'
-import Intro from '@/components/utils/overview/Intro'
-import Purpose from '@/components/utils/overview/Purpose'
+import Intro from '@/components/hooks/overview/Intro'
+import Purpose from '@/components/hooks/overview/Purpose'
 import RightBar from '@/layout/dashboard/RightBar'
 import getNavConfigByParent from '@/utils/getNavConfigByParent'
 import { Container, Grid } from '@mui/material'
@@ -10,7 +10,7 @@ import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 import Scrollspy from 'react-scrollspy'
 
-const config = getNavConfigByParent('utils', 'overview_utils')
+const config = getNavConfigByParent('hooks', 'overview_hooks')
 const sectionId = config.children.map((v) => v.id)
 
 const Page = () => {
@@ -30,8 +30,8 @@ const Page = () => {
                                 isBack={false}
                                 
                                 isNext={true}
-                                nextLabel='Formatter'
-                                nextUrl='/docs/utils/formatter'
+                                nextLabel='React Query'
+                                nextUrl='/docs/hooks/react_query'
                             />
                         </Scrollspy>
                     </Grid>

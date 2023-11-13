@@ -1,4 +1,5 @@
 "use client"
+import NavigationFooter from '@/components/NavigationFooter'
 import PageHeader from '@/components/PageHeader'
 import Intro from '@/components/my_component/overview/Intro'
 import Purpose from '@/components/my_component/overview/Purpose'
@@ -23,6 +24,13 @@ const Page = () => {
                         }}>
                             <Intro id='intro' />
                             <Purpose id='purpose' />
+                            <NavigationFooter 
+                                isBack={false}
+                                
+                                isNext={true}
+                                nextLabel='Table'
+                                nextUrl='/docs/my_component/table'
+                            />
                         </Scrollspy>
                     </Grid>
                     <Grid item md={0} lg={2}>

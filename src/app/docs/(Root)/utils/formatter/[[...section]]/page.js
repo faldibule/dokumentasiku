@@ -1,4 +1,5 @@
 "use client"
+import NavigationFooter from '@/components/NavigationFooter'
 import PageHeader from '@/components/PageHeader'
 import CustomActionTable from '@/components/my_component/table/CustomActionTable'
 import IntegerFormatter from '@/components/utils/formatter/IntegerFormatter'
@@ -30,6 +31,13 @@ const Page = () => {
                             <NpwpFormatter id='NpwpFormatter' />
                             <RupiahFormatter id='RupiahFormatter' />
                             <IntegerFormatter id='IntegerFormatter' />
+                            <NavigationFooter 
+                                isBack={true}
+                                backUrl='/docs/utils/overview_utils'
+                                backLabel='Overview'
+
+                                isNext={false}
+                            />
                         </Scrollspy>
                     </Grid>
                     <Grid item md={0} lg={2}>

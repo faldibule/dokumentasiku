@@ -1,7 +1,11 @@
 "use client"
+import NavigationFooter from '@/components/NavigationFooter'
 import PageHeader from '@/components/PageHeader'
+import ControlledTextField from '@/components/my_component/form/ControlledTextField'
 import CustomAutoComplete from '@/components/my_component/form/CustomAutoComplete'
 import Intro from '@/components/my_component/form/Intro'
+import UncontrolledOnSubmit from '@/components/my_component/form/UncontrolledOnSubmit'
+import UncontrolledTextField from '@/components/my_component/form/UncontrolledTextField'
 import RightBar from '@/layout/dashboard/RightBar'
 import getNavConfigByParent from '@/utils/getNavConfigByParent'
 import { Container, Grid } from '@mui/material'
@@ -23,8 +27,16 @@ const Page = () => {
                         }}>
                             <Intro id='intro' />
                             <CustomAutoComplete id='CustomAutoComplete' />
-                            <CustomAutoComplete id='CustomAutoComplete2' />
-                            <CustomAutoComplete id='CustomAutoComplete3' />
+                            <ControlledTextField id='ControlledTextField' />
+                            <UncontrolledTextField id='UncontrolledTextField' />
+                            <UncontrolledOnSubmit id='UncontrolledOnSubmit' />
+                            <NavigationFooter 
+                                isBack={true}
+                                backUrl='/docs/my_component/table'
+                                backLabel='Table'
+
+                                isNext={false}
+                            />
                         </Scrollspy>
                     </Grid>
                     <Grid item md={0} lg={2}>

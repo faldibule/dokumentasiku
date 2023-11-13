@@ -1,8 +1,12 @@
 "use client"
 import NavigationFooter from '@/components/NavigationFooter'
 import PageHeader from '@/components/PageHeader'
-import Intro from '@/components/utils/overview/Intro'
-import Purpose from '@/components/utils/overview/Purpose'
+import Intro from '@/components/hooks/react_query/Intro'
+import UseDelete from '@/components/hooks/react_query/useDelete'
+import UseFetch from '@/components/hooks/react_query/useFetch'
+import UseFetchById from '@/components/hooks/react_query/useFetchById'
+import UseImport from '@/components/hooks/react_query/useImport'
+import UseSave from '@/components/hooks/react_query/useSave'
 import RightBar from '@/layout/dashboard/RightBar'
 import getNavConfigByParent from '@/utils/getNavConfigByParent'
 import { Container, Grid } from '@mui/material'
@@ -10,7 +14,7 @@ import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 import Scrollspy from 'react-scrollspy'
 
-const config = getNavConfigByParent('utils', 'overview_utils')
+const config = getNavConfigByParent('hooks', 'react_query')
 const sectionId = config.children.map((v) => v.id)
 
 const Page = () => {
@@ -24,19 +28,27 @@ const Page = () => {
                         <Scrollspy offset={-100} items={sectionId} onUpdate={(e) => {
                             setActiveSection(e.id)
                         }}>
+
                             <Intro id='intro' />
-                            <Purpose id='purpose' />
+                            <UseFetch id='useFetch' />
+                            <UseFetchById id='useFetchById' />
+                            <UseSave id='useSave' />
+                            <UseDelete id='useDelete' />
+                            <UseImport id='useImport' />
+
                             <NavigationFooter 
-                                isBack={false}
+                                isBack={true}
+                                backLabel='Overview'
+                                backUrl='/docs/hooks/overview_hooks'
                                 
-                                isNext={true}
-                                nextLabel='Formatter'
-                                nextUrl='/docs/utils/formatter'
+                                isNext={false}
+                                // nextLabel='React Query'
+                                // nextUrl='/docs/hooks/react_query'
                             />
                         </Scrollspy>
                     </Grid>
                     <Grid item md={0} lg={2}>
-                        <RightBar parentUrl='/docs/utils' navConfig={[config]} activeSection={activeSection} />
+                        <RightBar parentUrl='/docs/hooks' navConfig={[config]} activeSection={activeSection} />
                     </Grid>
                 </Grid>
             </Container>
