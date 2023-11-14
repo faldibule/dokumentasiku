@@ -37,7 +37,7 @@ const UseFetch = ({ id }) => {
             <Typography variant='h3'>useFetch</Typography>
             <Typography variant='p' color='grey.400'>
                 useFetch - adalah sebuah custom hook yang biasa saya gunakan untuk melakukan 'fetching' data ke backend. 
-                Biasanya saya membuat custom fetch custom hook untuk setiap modul pada aplikasi. misalnya 'useFetchProduct' yang berarti berisikan fetch untu medapatkank data product
+                Biasanya saya membuat custom fetch custom hook untuk setiap modul pada aplikasi. misalnya 'useFetchProduct' yang berarti berisikan fetch untuk medapatkan data product
             </Typography>
             <Stack>
                 <CodeBlock 

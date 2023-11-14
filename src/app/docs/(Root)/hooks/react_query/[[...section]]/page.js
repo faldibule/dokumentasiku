@@ -21,14 +21,13 @@ const Page = () => {
     const { section } = useParams()
     const [activeSection, setActiveSection] = useState('')
     return (
-        <PageHeader title="Overview">
+        <PageHeader title="React Query">
             <Container>
                 <Grid container>
                     <Grid item xs={12} md={12} lg={9.5}>
                         <Scrollspy offset={-100} items={sectionId} onUpdate={(e) => {
                             setActiveSection(e.id)
                         }}>
-
                             <Intro id='intro' />
                             <UseFetch id='useFetch' />
                             <UseFetchById id='useFetchById' />
