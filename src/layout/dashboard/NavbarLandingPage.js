@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from 'react';
 import { MenuRounded } from '@mui/icons-material';
 import {
@@ -69,24 +70,31 @@ export default function NavbarLandingPage(props) {
             <Stack direction="row" alignItems="center" spacing={1}>
                 <IconButton onClick={handleDrawer}>
                 <MenuRounded
-                    sx={{ display: { xs: 'flex', md: 'none' }, color: !!props.type ? 'inherit' : scrollPosition < 10 ? '#fff' : 'inherit' }}
+                    sx={{ display: { xs: 'flex', md: 'none' }, color: '#fff' }}
                 />
                 </IconButton>
-                <Drawer anchor="top" open={drawer} onClose={handleDrawer}>
-                <Box sx={{ width: 'auto' }} role="presentation">
-                    <List>
-                    {menu.map((value, index) => {
-                        
-                        return(
-                        <ListItem key={index} disablePadding>
-                        <ListItemButton onClick={(e) => handleDrawer(e, value.id)}>
-                            <ListItemText primary={value.title} />
-                        </ListItemButton>
-                        </ListItem>
-                        )
-                    })}
-                    </List>
-                </Box>
+                <Drawer  anchor="top" open={drawer} onClose={handleDrawer}>
+                  <Box sx={{ width: 'auto', bgcolor: 'black' }} role="presentation">
+                      <List>
+                        {menu.map((value, index) => {
+                            
+                            return(
+                              <ListItem sx={{ bgcolor: 'black', color: 'white' }} key={index} disablePadding>
+                                <ListItemButton 
+                                  onClick={() => { 
+                                      if(value.id == 'docs'){
+                                          navigate.push('/docs')
+                                      }else if(value.id == 'github'){
+                                          navigate.push(`https://github.com/faldibule/dokumentasiku`)
+                                      }
+                                  }}>
+                                    <ListItemText primary={value.title} />
+                                </ListItemButton>
+                              </ListItem>
+                            )
+                        })}
+                      </List>
+                  </Box>
                 </Drawer>
                 {/* <Logo white={!!props.type ? true : !(scrollPosition > 10)} /> */}
                 {/* <Typography color='white'>Logo</Typography> */}
@@ -116,7 +124,7 @@ export default function NavbarLandingPage(props) {
                         >
                             {value.title}
                         </Typography>
-                )
+                    )
                 })}
             </Stack>
             <Box />
