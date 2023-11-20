@@ -1,6 +1,7 @@
 "use client"
 import PageHeader from "@/components/PageHeader";
 import CardSection from "@/components/landing-page/CardSection";
+import ComunitySection from "@/components/landing-page/ComunitySection";
 import HeroSection from "@/components/landing-page/HeroSection";
 import NavbarLandingPage from "@/layout/dashboard/NavbarLandingPage";
 import styled from "@emotion/styled";
@@ -20,6 +21,7 @@ const Home = () => {
               <HeroSection />
               <CardSection />
               <Divider />
+              <ComunitySection />
             </RootStyle>
         </PageHeader>
         

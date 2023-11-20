@@ -19,8 +19,17 @@ const HeroSection = () => {
                 <Grid container alignItems='center'>
                     <Grid item xs={12} md={6} mt={{ xs: 25, md: 0 }}>
                         <Stack>
-                            <Typography textAlign={{ xs: 'center', md: 'left' }} lineHeight={1} fontSize={{ xs: '2.5rem', md: '3.5rem' }} color='grey.100' fontWeight='bold'>
-                                Contekan Ajaib <Box component='span' color='#3399FF'>Mempermudah</Box> Hidup Developer
+                            <Typography textAlign={{ xs: 'center', md: 'left' }} lineHeight={1} fontSize={{ xs: '2.5rem', md: '3rem' }} color='grey.100' fontWeight='bold'>
+                                Contekan Ajaib <br />
+                                <Box component='span' sx={{
+                                     background: '-webkit-linear-gradient(#6aa9e8, #2789EC, #000000)',
+                                    '-webkit-background-clip': 'text',
+                                    '-webkit-text-fill-color': 'transparent',
+                                }}>
+                                    Mempermudah
+                                </Box> 
+                                <br />
+                                Hidup Developer
                             </Typography>
                             <Typography textAlign={{ xs: 'center', md: 'left' }} mt={3} variant="p" color='grey.100' fontWeight='bold'>
                                 Dokumentasiku adalah sebuah website yang dibuat untuk menyediakan contekan khususnya untuk frontend developer saat sedang membangun sebuah website dengan "React" / "NextJS" + "Material UI"  

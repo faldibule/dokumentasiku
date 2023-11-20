@@ -7,7 +7,7 @@ const CardSectionRootStyle = styled('div')({
     display: 'flex',
     minHeight: '100vh',
     color: 'white',
-    background: "linear-gradient(180deg, rgba(11,36,61,1) 5%, rgba(0,0,0,1) 200%)",
+    background: "linear-gradient(180deg, rgba(11,36,61,1) 5%, rgba(0,0,0,1) 100%)",
 });
 
 
@@ -15,7 +15,18 @@ const CardSection = () => {
     return (
         <CardSectionRootStyle>
             <Container>
-                <Typography textAlign='center' sx={{ fontSize: { xs: '2rem', md: '3rem' } }} fontWeight='800'>WHY I <Box component='span' color='#3399FF'>MADE</Box> THIS?</Typography>
+                <Typography textAlign='center' sx={{ fontSize: { xs: '2rem', md: '3rem' } }} fontWeight='800'>
+                    WHY I 
+                    <Box component='span' color='#3399FF' sx={{
+                        background: '-webkit-linear-gradient(#6aa9e8, #2789EC, #000000)',
+                        '-webkit-background-clip': 'text',
+                        '-webkit-text-fill-color': 'transparent',
+                        m: 1,
+                    }}>
+                        MADE
+                    </Box> 
+                    THIS?
+                </Typography>
                 <Typography textAlign='center'>Alasan utama saya membuat website ini kurang lebih dibagi menjadi 3 bagian</Typography>
                 <Grid container spacing={3} mt={{ xs: 5, md: 10 }} justifyContent='center'>
                     <Grid item xs={10} md={4}>
