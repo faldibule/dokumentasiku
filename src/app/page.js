@@ -4,6 +4,7 @@ import CardSection from "@/components/landing-page/CardSection";
 import ComunitySection from "@/components/landing-page/ComunitySection";
 import FooterSection from "@/components/landing-page/FooterSection";
 import HeroSection from "@/components/landing-page/HeroSection";
+import Uts from "@/components/landing-page/Uts";
 import NavbarLandingPage from "@/layout/dashboard/NavbarLandingPage";
 import styled from "@emotion/styled";
 import { CssBaseline, Divider } from "@mui/material";
@@ -24,6 +25,7 @@ const Home = () => {
               <ComunitySection />
               <Divider />
               <FooterSection />
+              {/* <Uts /> */}
             </RootStyle>
         </PageHeader>
         
