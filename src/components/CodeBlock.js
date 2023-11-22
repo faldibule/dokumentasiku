@@ -20,7 +20,14 @@ const CodeBlock = ({ codeString, language }) => {
                         </IconButton>
                     </Tooltip>
                 </Stack>
-                <SyntaxHighlighter lineNumberStyle={{ color: 'white' }} customStyle={{ fontSize: '0.8rem' }} showLineNumbers={true} language={language} style={vscDarkPlus}>
+                <SyntaxHighlighter 
+                    customStyle={{ 
+                        fontSize: '0.8rem' 
+                    }} 
+                    showLineNumbers={true} 
+                    language={language} 
+                    style={vscDarkPlus}
+                >
                     {codeString}
                 </SyntaxHighlighter>
             </Stack>

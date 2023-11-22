@@ -1,9 +1,10 @@
 "use client"
 import NavigationFooter from '@/components/NavigationFooter'
 import PageHeader from '@/components/PageHeader'
-import CustomActionTable from '@/components/my_component/table/CustomActionTable'
-import CustomLink from '@/components/my_component/table/CustomLink'
-import Intro from '@/components/my_component/table/Intro'
+import DeleteDialog from '@/components/my_component/dialog/DeleteDialog'
+import DownloadDialog from '@/components/my_component/dialog/DownloadDialog'
+import ImportDialog from '@/components/my_component/dialog/ImportDialog'
+import Intro from '@/components/my_component/dialog/Intro'
 import RightBar from '@/layout/dashboard/RightBar'
 import getNavConfigByParent from '@/utils/getNavConfigByParent'
 import { Container, Grid } from '@mui/material'
@@ -11,7 +12,7 @@ import { useParams } from 'next/navigation'
 import { useState } from 'react'
 import Scrollspy from 'react-scrollspy'
 
-const config = getNavConfigByParent('my_component', 'table')
+const config = getNavConfigByParent('my_component', 'dialog')
 const sectionId = config.children.map((v) => v.id)
 
 const Page = () => {
@@ -26,16 +27,17 @@ const Page = () => {
                             setActiveSection(e.id)
                         }}>
                             <Intro id='intro' />
-                            <CustomActionTable id='CustomActionTable' />
-                            <CustomLink id='CustomLink' />
+                            <DownloadDialog id="DownloadDialog" />
+                            <ImportDialog id="ImportDialog" />
+                            <DeleteDialog id="DeleteDialog" />
+
                             <NavigationFooter 
                                 isBack={true}
-                                backUrl='/docs/my_component/overview_my_component'
-                                backLabel='Overview'
+                                backUrl='/docs/my_component/form'
+                                backLabel='Form'
 
-                                isNext={true}
-                                nextLabel='Form'
-                                nextUrl='/docs/my_component/form'
+                                isNext={false}
+                                
                             />
                         </Scrollspy>
                     </Grid>

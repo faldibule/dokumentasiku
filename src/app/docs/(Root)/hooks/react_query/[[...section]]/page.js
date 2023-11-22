@@ -11,7 +11,7 @@ import RightBar from '@/layout/dashboard/RightBar'
 import getNavConfigByParent from '@/utils/getNavConfigByParent'
 import { Container, Grid } from '@mui/material'
 import { useParams } from 'next/navigation'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Scrollspy from 'react-scrollspy'
 
 const config = getNavConfigByParent('hooks', 'react_query')
@@ -40,9 +40,9 @@ const Page = () => {
                                 backLabel='Overview'
                                 backUrl='/docs/hooks/overview_hooks'
                                 
-                                isNext={false}
-                                // nextLabel='React Query'
-                                // nextUrl='/docs/hooks/react_query'
+                                isNext={true}
+                                nextLabel='UI Hooks'
+                                nextUrl='/docs/hooks/ui_hooks'
                             />
                         </Scrollspy>
                     </Grid>

@@ -2,6 +2,7 @@
 import PageHeader from "@/components/PageHeader";
 import CardSection from "@/components/landing-page/CardSection";
 import ComunitySection from "@/components/landing-page/ComunitySection";
+import FooterSection from "@/components/landing-page/FooterSection";
 import HeroSection from "@/components/landing-page/HeroSection";
 import NavbarLandingPage from "@/layout/dashboard/NavbarLandingPage";
 import styled from "@emotion/styled";
@@ -20,8 +21,9 @@ const Home = () => {
               <NavbarLandingPage />
               <HeroSection />
               <CardSection />
-              <Divider />
               <ComunitySection />
+              <Divider />
+              <FooterSection />
             </RootStyle>
         </PageHeader>
         

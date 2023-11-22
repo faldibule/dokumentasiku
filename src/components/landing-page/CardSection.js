@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
-import { Icon } from '@iconify/react';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import Iconify from '../Iconify';
 
 const CardSectionRootStyle = styled('div')({
     display: 'flex',
     minHeight: '100vh',
+    alignItems: 'center',
     color: 'white',
     background: "linear-gradient(180deg, rgba(11,36,61,1) 5%, rgba(0,0,0,1) 100%)",
 });
@@ -39,8 +39,10 @@ const CardSection = () => {
                             borderStyle: 'double',
                             borderColor: '#2F2F2F',
                             color: 'white',
+                            transition: '0.5s',
                             ':hover': {
-                                borderColor: '#444444'
+                                borderColor: '#444444',
+                                boxShadow: '0px 23px 34px 14px rgba(62,62,157,0.31)',
                             }
                         }}>
                             <Stack>
@@ -68,7 +70,8 @@ const CardSection = () => {
                             borderColor: '#2F2F2F',
                             color: 'white',
                             ':hover': {
-                                borderColor: '#444444'
+                                borderColor: '#444444',
+                                boxShadow: '0px 23px 34px 14px rgb(157,62,62, 0.31)',
                             }
                         }}>
                             <Stack>
@@ -98,7 +101,8 @@ const CardSection = () => {
                             borderColor: '#2F2F2F',
                             color: 'white',
                             ':hover': {
-                                borderColor: '#444444'
+                                borderColor: '#444444',
+                                boxShadow: '0px 23px 34px 14px rgb(61,147,58, 0.31)',
                             }
                         }}>
                             <Stack>

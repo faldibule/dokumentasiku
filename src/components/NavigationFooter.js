@@ -1,6 +1,5 @@
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
-import React from 'react'
 import Iconify from './Iconify'
 
 const NavigationFooter = ({ 
@@ -11,7 +10,7 @@ const NavigationFooter = ({
         <Stack mt={10} direction='row' justifyContent='space-between' alignItems='center'>
             {isBack ?
                 <Link href={backUrl} style={{ textDecoration: 'none' }}>
-                <Stack width={150} sx={{ 
+                <Stack minWidth={160} sx={{ 
                     px: 2, py: 1,
                     color: 'grey.300', 
                     ':hover': { color: 'grey.100' } 
@@ -27,7 +26,7 @@ const NavigationFooter = ({
             }
             {isNext ?
                 <Link href={nextUrl} style={{ textDecoration: 'none' }}>
-                    <Stack width={150} sx={{ 
+                    <Stack minWidth={160} sx={{ 
                         px: 2, py: 1,
                         color: 'grey.300', 
                         ':hover': { color: 'grey.100' } 

@@ -1,11 +1,13 @@
 import { Stack, Typography } from '@mui/material'
-import React, { Fragment, forwardRef } from 'react'
 import CodeBlock from '../../CodeBlock'
 
 const codeToDisplay = `import { IconButton, Stack, Tooltip } from "@mui/material"
 import Iconify from "./Iconify"
 
-const CustomActionTableComponent = ({ approve = false, edit = false, handleApprove = () => {}, handleEdit = () => {}, handleDelete = () => {} }) => {
+const CustomActionTableComponent = ({ 
+    approve = false, edit = false, 
+    handleApprove = () => {}, handleEdit = () => {}, handleDelete = () => {} 
+}) => {
     return (
         <Stack direction='row' justifyContent='center' height={38}>
             {approve ?

@@ -9,7 +9,7 @@ import UncontrolledTextField from '@/components/my_component/form/UncontrolledTe
 import RightBar from '@/layout/dashboard/RightBar'
 import getNavConfigByParent from '@/utils/getNavConfigByParent'
 import { Container, Grid } from '@mui/material'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Scrollspy from 'react-scrollspy'
 
 const config = getNavConfigByParent('my_component', 'form')
@@ -35,7 +35,9 @@ const Page = () => {
                                 backUrl='/docs/my_component/table'
                                 backLabel='Table'
 
-                                isNext={false}
+                                isNext={true}
+                                nextLabel='Dialog'
+                                nextUrl='/docs/my_component/dialog'
                             />
                         </Scrollspy>
                     </Grid>
